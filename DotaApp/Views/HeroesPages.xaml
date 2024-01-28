@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotaApp.Views.HeroesPages"
+             Title="HeroesPages">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto, *, Auto">
+                <VerticalStackLayout Margin="0, 20, 0, 0">
+                    <Label Style="{StaticResource Title}" HorizontalOptions="Center" x:Name="NAME_PAGE" />
+                    <Frame Style="{StaticResource TitleUnderLine}" />
+                </VerticalStackLayout>
+
+                <CollectionView Margin="40, 0" Grid.Row="1" x:Name="CollectionView_Hero" ItemsSource="{Binding}" Loaded="CollectionView_Hero_Loaded">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout >
+                                <Image Source="{Binding image}"/>
+                                <StackLayout Margin="20, 0">
+                                    <Label Text="{Binding name}" Style="{StaticResource Title}" FontSize="18" />
+                                    <Label Text="{Binding TypeAttack.name, StringFormat='Тип атаки: {0}'}" />
+                                    <Label Text="{Binding diff, StringFormat='Сложность: {0}'}" />
+                                    <Button Text="Смотреть" Clicked="Button_Clicked" />
+                                </StackLayout>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <StackLayout Grid.Row="2" Margin="0, 40">
+                    <Frame Style="{StaticResource TitleUnderLine}" Margin="40, 0, 40, 10" />
+                    <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="40, 0">
+                        <ImageButton Source="hero.png" Clicked="ImageButton_PageHeroes" Style="{StaticResource IconOutline}" />
+                        <ImageButton Source="assembly.png" Clicked="ImageButton_PageАssembly" Style="{StaticResource IconOutline}" />
+                        <ImageButton Source="update.png" Clicked="ImageButton_PageUpdates" Style="{StaticResource IconOutline}" />
+                    </FlexLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

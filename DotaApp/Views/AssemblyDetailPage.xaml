@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotaApp.Views.AssemblyDetailPage"
+             Title="AssemblyDetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto, Auto, *, Auto">
+                <VerticalStackLayout Margin="0, 20, 0, 0">
+                    <Label Style="{StaticResource Title}" HorizontalOptions="Center" Text="О ГЕРОЕ" />
+                    <Frame Style="{StaticResource TitleUnderLine}" />
+                </VerticalStackLayout>
+
+                <StackLayout Margin="40, 0" Grid.Row="1">
+                    <HorizontalStackLayout >
+                        <Image Source="{Binding image}"/>
+                        <StackLayout Margin="20, 0">
+                            <Label Text="{Binding name}" Style="{StaticResource Title}" FontSize="18" />
+                            <Label Text="{Binding TypeAttack.name, StringFormat='Тип атаки: {0}'}" />
+                            <Label Text="{Binding diff, StringFormat='Сложность: {0}'}" />
+                            <Label Margin="0, 10, 0, 0" Text="{Binding Attribute.name, StringFormat='Атрибут: {0}'}" />
+                        </StackLayout>
+                    </HorizontalStackLayout>
+                    <Label Margin="0, 15" TextColor="#00b2ec" Text="{Binding description}" />
+                </StackLayout>
+
+                <CollectionView Margin="40, 0" Grid.Row="2" ItemsSource="{Binding GroupItemsWithItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Style="{StaticResource Title}" FontSize="18" Text="{Binding GroupName}" />
+                                <CollectionView ItemsSource="{Binding ItemNames}">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Horizontal" HorizontalItemSpacing="5"/>
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding .}" WidthRequest="40" HeightRequest="40"/>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <StackLayout Grid.Row="3" Margin="0, 40">
+                    <Frame Style="{StaticResource TitleUnderLine}" Margin="40, 0, 40, 10" />
+                    <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="40, 0">
+                        <ImageButton Source="hero.png" Clicked="ImageButton_PageHeroes" Style="{StaticResource IconOutline}" />
+                        <ImageButton Source="assembly.png" Clicked="ImageButton_PageАssembly" Style="{StaticResource IconOutline}" />
+                        <ImageButton Source="update.png" Clicked="ImageButton_PageUpdates" Style="{StaticResource IconOutline}" />
+                    </FlexLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

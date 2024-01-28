@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DotaApp.Views.UpdatesPage"
+             Title="UpdatesPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowDefinitions="Auto, *, Auto">
+                <VerticalStackLayout Margin="0, 20, 0, 0">
+                    <Label Text="ОБНОВЛЕНИЯ" Style="{StaticResource Title}" HorizontalOptions="Center" />
+                    <Frame Style="{StaticResource TitleUnderLine}" />
+                </VerticalStackLayout>
+
+                <CollectionView Margin="40, 0" Grid.Row="1" x:Name="CollectionView_Updates" ItemsSource="{Binding}" Loaded="CollectionView_Updates_Loaded">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="{Binding title}" Style="{StaticResource Title}" FontSize="18" />
+                                <Label Text="{Binding smallDescription}"/>
+                                <Button Text="Смотреть" Clicked="Button_Clicked" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <StackLayout Grid.Row="2" Margin="0, 40">
+                    <Frame Style="{StaticResource TitleUnderLine}" Margin="40, 0, 40, 10" />
+                    <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="40, 0">
+                        <ImageButton Source="hero.png" Clicked="ImageButton_PageHeroes" Style="{StaticResource IconOutline}" />
+                        <ImageButton Source="assembly.png" Clicked="ImageButton_PageАssembly" Style="{StaticResource IconOutline}" />
+                        <ImageButton Source="update.png" Clicked="ImageButton_PageUpdates" Style="{StaticResource IconOutline}" />
+                    </FlexLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

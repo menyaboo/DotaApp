@@ -1,0 +1,66 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DotaApp"
+             x:Class="DotaApp.App">
+    <Application.Resources>
+        <!-- <ResourceDictionary> -->
+        <!--     <ResourceDictionary.MergedDictionaries> -->
+        <!--         <ResourceDictionary Source="Resources/Styles/Colors.xaml" /> -->
+        <!--         <ResourceDictionary Source="Resources/Styles/Styles.xaml" /> -->
+        <!--     </ResourceDictionary.MergedDictionaries> -->
+        <!-- </ResourceDictionary> -->
+        
+        <!-- Глобальные стили -->
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="BorderColor" Value="#FFFFFF"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Padding" Value="20, 5"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style TargetType="Frame" x:Key="TitleUnderLine">
+            <Setter Property="HeightRequest" Value="3" />
+            <Setter Property="CornerRadius" Value="0" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="IsClippedToBounds" Value="False" />
+            <Setter Property="BackgroundColor" Value="#FFFFFF" />
+            <Setter Property="Margin" Value="40, 5, 40, 30" />
+        </Style>
+        <Style TargetType="Image" x:Key="Icon">
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="WidthRequest" Value="100" />
+            <Setter Property="HeightRequest" Value="100" />
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="BorderColor" Value="Transparent" />
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+        <Style TargetType="ImageButton" x:Key="IconOutline">
+            <Setter Property="BorderColor" Value="#FFF" />
+            <Setter Property="BorderWidth" Value="2" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+    </Application.Resources>
+</Application>
